@@ -22,7 +22,7 @@
 #
 # If a boost tarball (a file named “boost_$BOOST_VERSION2.tar.bz2”) does not
 # exist in the current directory, this script will attempt to download the
-# version specified by BOOST_VERSION2. You may also manually place a matching 
+# version specified by BOOST_VERSION2. You may also manually place a matching
 # tarball in the current directory and the script will use that.
 #
 #===============================================================================
@@ -57,7 +57,7 @@ for ARCH in $OSX_ARCHS; do
 done
 
 XCODE_ROOT=`xcode-select -print-path`
-COMPILER="$XCODE_ROOT/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++" 
+COMPILER="$XCODE_ROOT/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++"
 
 # The EXTRA_CPPFLAGS definition works around a thread race issue in
 # shared_ptr. I encountered this historically and have not verified that
@@ -126,7 +126,7 @@ OPTIONS:
 
     -tvos
         Build for the tvOS platform.
-    
+
     --boost-version [num]
         Specify which version of Boost to build. Defaults to $BOOST_VERSION.
 
@@ -452,7 +452,7 @@ buildBoost_iOS()
         macosx-version=iphone-${IOS_SDK_VERSION} define=_LITTLE_ENDIAN \
         link=static stage >> "${IOSOUTPUTDIR}/iphone-build.log" 2>&1
     if [ $? != 0 ]; then echo "Error staging iPhone. Check log."; exit 1; fi
-    
+
     ./b2 $THREADS --build-dir=iphone-build --stagedir=iphone-build/stage \
         --prefix="$IOSOUTPUTDIR/prefix" toolset=darwin architecture=arm \
         target-os=iphone macosx-version=iphone-${IOS_SDK_VERSION} \
@@ -527,7 +527,7 @@ unpackArchive()
 
     echo "Unpacking $BUILDDIR/$LIBNAME"
 
-    if [[ -d "$BUILDDIR/$LIBNAME" ]]; then 
+    if [[ -d "$BUILDDIR/$LIBNAME" ]]; then
         cd "$BUILDDIR/$LIBNAME"
         rm *.o
         rm *.SYMDEF*
